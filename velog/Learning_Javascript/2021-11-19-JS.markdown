@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "자바스크립트와 ECMAscript 차이는? (Learning JS)"
+date:   2021-11-19
+categories: Javascript
+---
+---
+
+# 자바스크립트 와 ECMAscript 
+
+Javascript = ECMAscrpit + DOM + BOM
+
+Node = JS를 브라우저 밖에서 실행 해주는 도구!
+
+NPM = Node Packaged Manager
+
+cmd vs bash (window vs unix)
+
+```javascript
+//Primitive Type
+let number = 1
+let string ="A"
+let booleanType = true;
+let nullType = null;
+let undefinedType = undefined;
+let symbolType = Symbol("onlyOne");
+```
+
+ 

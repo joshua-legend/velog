@@ -1,0 +1,80 @@
+---
+layout: post
+title:  "스코프...! (Learning JS)"
+date:   2021-11-19
+categories: Javascript
+---
+---
+
+## Scope determines the accessibility (visibility) of variables.
+```javascript
+function f(x) {
+    return x+3;    
+}
+f(5) // 8
+x; // Reference Error;
+```
+
+## 스코프의 존재
+
+> execution context에서 접근 할 수 있는 식별자를 말함
+> 
+> 즉, GC에 의해서 메모리 회수 여부에 판단에 변수나 함수의 종료를 의미함
+>
+> 정적 스코프는 전역 스코프, 블록 스코프, 함수 스코프
+```javascript
+const x = 3;
+function f() {
+    console.log(x);
+    console.log(y);
+}
+{
+    const y = 5;
+    f();
+}
+```
+
+## 클로저
+
+```javascript
+let globalFunc;
+{
+    let blockVar = 'a';
+    globalFunc = function () {
+        console.log(blockVar);
+    }
+}
+globalFunc();
+```
+
+> *JavaScript variables can belong to the local or global scope.
+> Global variables can be made local (private) with closures.*
+> 
+
+## IIFE(Immediately Invoked Function Expression)
+```javascript
+(function () {
+    //IIFE Body
+})();
+
+const f = (function () {
+    let cnt = 0;
+    return function () {
+        return `I have been called ${++cnt} time(s)`;
+    }
+})();
+
+f();
+f();
+```
+
+## var는 절대 금지!! let만
+
+> es5 때문에 호환성으로 let이 차지하게 될 것!
+
+
+## 스트릭트모드
+
+> es5 문법에서 암시적 전역변수를 차단해준다.
+
+

@@ -1,0 +1,86 @@
+---
+layout: post
+title:  "JS의 꽃 함수 (Learning JS)"
+date:   2021-11-19
+categories: Javascript
+---
+---
+
+
+> call invoke execute run => function()
+
+## 매개변수
+
+### 원시 값(value Type)은 불변, 객체(Reference Type)는 가변
+
+```javascript
+function f(x) {
+    console.log(`f 내부: x=${x}`);
+    x=5;
+    console.log(`f 내부: x=${x} 할당 후`);
+}
+
+let x = 3;
+console.log(`f 호출하기 전: x=${x}`);
+f(x);
+console.log(`f 호출한 후: x=${x}`);
+```
+
+### 객체의 프로퍼티인 함수
+```javascript
+const o = {
+    name : `Wallance`,
+    bark : function (){return `멍멍`}
+}
+```
+
+### this 키워드
+*일반적으로 this는 객체의 프로퍼티인 함수에서 의미한다.this는 호출한 메서드를 소유하는 객체*
+
+
+
+### 화살표 표기법
+
++ function 생략가능
++ 함수에 매개변수가 **단 하나**라면 (()) 생략 가능
++ 함수 바디가 표현식 하나라면 중괄호와 return 생략 가능
++ 항상 익명
+
+```javascript
+const f1 = function () {return "hello!";}
+const f1 = () => "hello";
+
+const f2 = function (name) {`hello ${name}`}
+const f2 = (name) => `hello ${name}`;
+
+const f3 = function (a,b) { return a+b;}
+const f3 = (a,b) => a + b;
+```
+
+### call,apply,bind
+
+> call는 this 과 apply는 ...,Array
+
+```javascript
+function update(birth, occup) {
+    this.birth = birth;
+    this.occup = occup;
+}
+const bruce = {name:`bruce`};
+const madeli = {name:`madeli`};
+
+update.call(bruce,1993,`singer`);
+// bruce
+// {name: 'bruce', birth: 1993, occup: 'singer'}
+
+update.apply(madeli,[1955,`actor`]);
+// madeli
+// {name: 'madeli', birth: 1995, occup: 'actor'}
+
+const arr = [5,1,25,9,-19];
+
+Math.min.apply(null,arr);
+Math.min.apply(...arr);
+
+
+```

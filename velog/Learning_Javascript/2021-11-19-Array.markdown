@@ -1,0 +1,132 @@
+---
+layout: post
+title:  "배열 (Learning JS)"
+date:   2021-11-19
+categories: Javascript
+---
+---
+
+## 배열의 기초
+
+* *nonhomogeneous*
+* 배열 자동 할당
+
+```javascript
+const arr = [
+    {name: "Fred", type: "object", luckyNubmers: [5,7,13],},
+    [
+        {name: "obama", type: "object"},
+        {name: "trump", type: "object"},
+    ],
+    1,
+    function () {return "Arrays can contain functions too";},
+    "three",
+];
+arr[1][0] // trump;
+arr[4] =  5; // 배열 늘리기
+arr[5] // undefined 배열이 늘어나지 않음
+// Array 생성자는 거의 사용하지 않는다.
+```
+
+## 배열 요소 조작
+
+```javascript
+const arr = ["b","c","d"];
+arr.push("e");
+arr.pop();
+arr.unshift("a");
+arr.shift();
+arr.concat(4,5,6); // 연결
+arr.slice(3); // 일부 발췌
+
+const arr1 = [2,4,5];
+arr1.splice(1,0,2,3,4); //2번째 0개 삭제 2,3,4 추가
+
+const arr2 = [1,2,3,4];
+arr2.copyWithin(1,2); // 복사한 요소를 붙여넣을 위치, 시작 위치, 끝 위치
+arr.fill("a"); // a
+arr.reverse();
+arr.sort();
+```
+
+## 배열 검색
+
+* indexOf, lastIndexOf, *findIndex*
+
+```javascript
+const arr = [
+    { id: 5, name: "Judith"},
+    { id: 7, name: "Francis"}
+];
+
+arr.findIndex(o=>o.id === 5);
+arr.find(o=> o.id ===5);
+
+const arr = [1,17,16,5,4,16,10, 3, 48];
+
+class Person{
+    constructor(name){
+        this.name = name;
+        this.id = Person.nextId++;
+    }
+}
+
+Person.nextId = 0;
+
+const james = new Person("james"),
+    hank = new Person("hank"),
+    peter = new Person("peter"),
+    tom = new Person("tom");
+
+const peopleArr = [james,hank,peter,tom];
+
+peopleArr.find(p => p.id === hank.id);
+
+const arr = [5,7,12,15,17];
+arr.some(x => x%2===0);
+arr.some(x => Number.isInteger(Math.sqrt(x)));
+```
+
+
+## map과 filter
+
+* map은 배열 요소를 변형
+
+```javascript
+const cart = [
+    { name : `milk`, price : 33.5},
+    { name : `butter`, price : 12.5}
+]
+
+const name = cart.map(x=>x.name);
+const price = cart.map(x=>x.price);
+const discountPrice = cart.map(x=>x.price * 0.9);
+```
+
+```javascript
+
+const cards = [];
+for(let kind of [`Heart`,`Clover`,`Diamond`,`Spade`])
+    for(let number=1;number<14;number++)
+        cards.push({kind,number});
+    
+//숫자 2의 모음
+cards.filter(x=>x.number===2);
+
+//Diamond의 모음
+cards.filter(x=>x.kind===`Diamond`);
+```
+
+## 문자열 병합 Join
+
+* null, undefined, 삭제된 요소, 정의되지 않은 요소는 빈 문자 취급
+
+```javascript
+const arr = [1,null,"hello","world",true,undefined];
+delete arr[3];
+
+arr.join();
+arr.join(`ㅋㅋ`);
+arr.join(`-`);
+```
+

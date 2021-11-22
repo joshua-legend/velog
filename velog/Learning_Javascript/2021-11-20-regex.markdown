@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "정규표현식 (Learning JS)"
+date:   2021-11-21
+categories: Javascript
+---
+---
+
+# RegExp 
+
+```javascript
+const re1 = /going/;
+const re2 = new RegExp("going");
+```
+
+### 1. 정규표현식 형식
+
+* "/"사이에는 매칭시킬 패턴 넣기
+* "/"다음에는 옵션 플래그 써주기

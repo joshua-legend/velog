@@ -1,0 +1,156 @@
+---
+layout: post
+title:  "비동기적 프로그래밍(Learning JS)"
+date:   2021-11-20
+categories: Javascript
+---
+---
+
+# JS는 싱글 스레드
+
+### 비동기적 테크닉
+
+* Ajax
+* file I/O
+* Time (Alarm)
+
+
+### 콜백 함수
+
+> 나중에 호출할 함수
+> 
+> 쓰는 이유 : 어떤 것도 차단하지 않는다 (프로그램 동작, 입력, 화면 업데이트)
+
+```javascript
+function f(){console.log("hey")}
+setTimeout(f,60*1000); // 1분뒤 hey
+```
+
+### 스코프와 비동기적 실행
+
+>클로저(closure)란, 외부 함수에 접근할 수 있는 내부 함수 혹은 이러한 원리를 일컫는 용어인데 스코프에 따라서 내부함수의 범위에서는 외부 함수 범위에 있는 변수에 접근이 가능하지만 그 반대는 실현이 불가능하다는 개념이다.
+> 함수와 함수가 선언된 어휘적 환경의 조합(쉽게 말해 당시의 관계되는 코드들)의 참조를 유지한다.(즉, 기억한다.)
+
+
+```javascript
+function makeFunc() {
+    var name = "Mozilla";
+    function displayName() {
+        alert(name);
+    }
+    return displayName;
+}
+//
+function countdown() {
+    let i;
+    console.log("Countdown:");
+    // setTimeout( func, delay) -> 0 1 2 3 4 go! 
+    for(i=5; i>=0;i--){setTimeout(function (){console.log(i===0 ? "GO!" : i);}, (5-i)*1000);}
+}
+
+function countdown() {
+    console.log("Countdown:");
+    // setTimeout( func, delay) -> 0 1 2 3 4 go! 
+    for(let i=5; i>=0;i--){setTimeout(function (){console.log(i===0 ? "GO!" : i);}, (5-i)*1000);}
+}
+countdown();
+```
+
+### Promise 
+
+*“A promise is an object that may produce a single value some time in the future”*
+
+```javascript
+
+//callback 원조
+
+function getData(callbackFunc) {
+    $.get('url 주소/products/1', function(response) {
+        callbackFunc(response); // 서버에서 받은 데이터 response를 callbackFunc() 함수에 넘겨줌
+    });
+}
+
+getData(function(tableData) {
+    console.log(tableData); // $.get()의 response 값이 tableData에 전달됨
+});
+// promise 추가
+function getData(callback) {
+    // new Promise() 추가
+    return new Promise(function(resolve, reject) {
+        $.get('url 주소/products/1', function(response) {
+            // 데이터를 받으면 resolve() 호출
+            resolve(response);
+        });
+    });
+}
+// getData()의 실행이 끝나면 호출되는 then()
+getData().then(function(tableData) {
+    // resolve()의 결과 값이 여기로 전달됨
+    console.log(tableData); // $.get()의 reponse 값이 tableData에 전달됨
+});
+```
+
+
+### 프로미스의 3가지 상태(states)
+
+* Pending(대기) : 비동기 처리 로직이 아직 완료되지 않은 상태
+```javascript
+new Promise(function(resolve, reject) {
+  // ...
+});
+```
+* Fulfilled(이행) : 비동기 처리가 완료되어 프로미스가 결과 값을 반환해준 상태
+```javascript
+new Promise(function(resolve, reject) {
+  resolve();
+});
+
+function getData() {
+    return new Promise(function(resolve, reject) {
+        var data = 100;
+        resolve(data);
+    });
+}
+// resolve()의 결과 값 data를 resolvedData로 받음
+getData().then(function(resolvedData) {
+    console.log(resolvedData); // 100
+});
+
+```
+* Rejected(실패) : 비동기 처리가 실패하거나 오류가 발생한 상태
+```javascript
+new Promise(function(resolve, reject) {
+  reject();
+});
+
+function getData() {
+    return new Promise(function(resolve, reject) {
+        reject(new Error("Request is failed"));
+    });
+}
+
+// reject()의 결과 값 Error를 err에 받음
+getData().then().catch(function(err) {
+    console.log(err); // Error: Request is failed
+});
+```
+### 여러 개의 프로미스 연결하기 (Promise Chaining)
+
+```javascript
+new Promise(function(resolve, reject){
+  setTimeout(function() {
+    resolve(1);
+  }, 2000);
+})
+.then(function(result) {
+  console.log(result); // 1
+  return result + 10;
+})
+.then(function(result) {
+  console.log(result); // 11
+  return result + 20;
+})
+.then(function(result) {
+  console.log(result); // 31
+});
+```

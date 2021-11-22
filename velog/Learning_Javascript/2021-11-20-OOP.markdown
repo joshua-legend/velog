@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "OOP (Learning JS)"
+date:   2021-11-19
+categories: Javascript
+---
+---
+
+# OOP 
+
+> * 객체는 프로퍼티를 가지며 문자열,심볼 가짐
+> 
+> * 순서 보장 없음
+> 
+> * **프로퍼티는 키(문자열 or 심볼)과 값을 구성**
+
+### for...in , Object.keys
+```javascript
+const o = {a:1,b:2,c:3}
+
+for(let prop in o){
+    if(!o.hasOwnProperty(prop)) continue;
+    console.log((`${prop}: ${o[prop]}`))
+}
+
+const p = { apple:1, ballon:2, xellox:3};
+Object.keys(p)
+    .filter(x => x.match(/^x/))
+    .forEach(x=>console.log(`${x}:${p[x]}`))
+```
+> for ... in 은 객체 for, for each 는 배열
+> 
+> Object.keys는 나열 가능한 문자열 프로퍼티를 배열로 반환
+
+ 
+## 클래스는 함수다.
+
+```javascript
+class Es6Car{}
+typeof Es6Car; // "function"
+```
+## 프로토 타입
+
+* 모든 함수에는 prototype 프로퍼티 소유
+* 클래스의 인스턴스는 모두 같은 프로토타입 공유
+
+## 다중 상속, 믹스인, 인터페이스
+
+```javascript
+class InsurancePolicy{}
+function makeInsurable(obj){
+    obj.addInsurancePolicy = function (target){this.insurancePolicy = target;}
+    obj.getInsurancePolicy = function () { return this.insurancePolicy;}
+    obj.isInsured = function () {return !!this.insurancePolicy;}
+}
+
+// 개별적으로 보험 가입
+const car1 = new Car();
+makeInsurable(car1);
+car1.addInsurancePolicy(new InsurancePolicy());
+
+// 모든 자동차 보험 가입
+makeInsurable(Car.prototype);
+const car1 = new Car();
+car1.addInsurancePolicy(new InsurancePolicy());
+```

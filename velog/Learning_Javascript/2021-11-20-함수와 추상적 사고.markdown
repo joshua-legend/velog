@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "함수와 추상적 사고 (Learning JS)"
+date:   2021-11-20
+categories: Javascript
+---
+---
+
+# 함수로서의 함수
+
+> 수학적인 정의에 충실한 함수는 **Pure Function**
+>  
+> 반복을 없앤다. 기계가 할 일이다.
+>
+> 프로그램이 수학과 비슷해지면 테스트, 이해, 재사용이 쉬움 (지향성)
+>
+> *함수가 상황에 따라 다른 값이 반환하는 이유는 컨텍스트에 좌우 되기 때문*
+
+
+## 함수도 객체다.
+
+```javascript
+//step 1
+function loopBody(i){setTimeout(function () {console.log(i===0 ? "go!" : i);}, (5-i)*1000);}
+var i;
+for(i=5; i>=0; i--){loopBody(i);}
+
+// IIFE
+(function () {})(); 
+
+//step 2
+var i;
+for(i=5; i>=0;i--){
+    (function (i) {setTimeout(function () {console.log(i===0 ? "go!" : i);}, (5-i)*1000)})(i);
+}
+
+```
+* 배열 안의 함수 -> 파이프라인(그래픽, 오디오)
+* 함수에 함수 전달 -> 콜백
