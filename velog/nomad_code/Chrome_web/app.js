@@ -1,14 +1,9 @@
-const h1 = document.querySelector("div.hello:first-child h1");
+const loginInput = document.querySelector(`#login-form input`);
+const loginButton = document.querySelector(`#login-form button`);
 
-function handleTitleClick() {
-    // const clickedClass = `clicked sexy-font`;
-    // if(h1.classList.contains(clickedClass)){
-    //     h1.classList.remove(clickedClass)
-    // }else{
-    //     h1.classList.add(clickedClass)
-    // }
-    //
-    h1.classList.toggle("clicked") //한줄 요약
+function handleLoginBtnClick(){
+    console.log(loginInput.value);
+    console.log(loginButton);
 }
 
-h1.addEventListener("click",handleTitleClick)
+loginButton.addEventListener("click",handleLoginBtnClick);
