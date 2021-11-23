@@ -40,4 +40,59 @@ function handleLinkClick(event) {
 link.addEventListener("click",handleLinkClick);
 ```
 
-*  MouseEvent보다 PointerEvent가 더 많은 기능을 포함하고 있어서 이제 PointerEvent를 쓴다고하네요
+*  MouseEvent보다 PointerEvent가 더 많은 기능을 포함하고 있어서 이제 PointerEvent를 쓴다고 하네요.
+
+```javascript
+//.hidden{display: none;}
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+
+function onLoginSubmit(){
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem("username",username);
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
+```
+
+# Local Storage
+
+> 브라우저 미니 DB ^ㅡ^
+
+```javascript
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username"
+
+function onLoginSubmit(){
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username);
+}
+
+function paintGreetings(username){
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+loginForm.addEventListener("submit", onLoginSubmit);
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername===null){
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit",onLoginSubmit);
+}else{
+    paintGreetings(savedUsername);
+}
+```
