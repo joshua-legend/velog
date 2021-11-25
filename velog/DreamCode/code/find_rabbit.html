@@ -5,7 +5,7 @@
     <title>Title</title>
     <style>
         #container{display: flex;flex-direction: column;height: 3000px;justify-content: space-evenly;}
-        #container > div {background-color: skyblue;height: 100px;width: 25%;}
+        #container > div {background-size: contain; background-repeat: no-repeat;  height: 100px;width: 25%;}
         #guider{ position: -webkit-sticky;position: sticky;top: 0;}
         #guider > div{display: flex;justify-content: flex-end;}
         #guider > div > button{margin: 10px}
@@ -14,9 +14,7 @@
 <body>
   <div id="guider">
       <div>
-          <button id="by_100px">Scroll by 100px</button>
-          <button id="to_100px">Scroll to 100px</button>
-          <button id="by_special">Scroll by special</button>
+          <button id="find_rabbit">find a rabbit 🐰</button>
       </div>
   </div>
   <div id="container"></div>

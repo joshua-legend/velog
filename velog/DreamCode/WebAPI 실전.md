@@ -1,3 +1,14 @@
+# 토끼를 찾아라
+
+* Sticky 포지션
+
+* scrollIntoView() 메소드 활용
+
+* **JS로 HTML 모든것을 커버 가능** 
+
+* 해당 위치의 토끼를 찾는 페이지
+
+```javascript
 const container = document.querySelector("#container");
 const num = 25;
 const special =  Math.floor(Math.random() * (num - 0)) + 0;
@@ -24,4 +35,5 @@ createDIV();
 
 findRabbitBtn.addEventListener('click',()=>{
     special_div.scrollIntoView({behavior: 'smooth'});
-})
+});
+```
