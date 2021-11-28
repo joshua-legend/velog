@@ -13,46 +13,13 @@ input{outline: none;}
     border-radius: 20px 20px 0 0;
     color: white;
 }
-
-.items{
-    height: 500px;
-    overflow-y: auto;
-}
-.item{
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 32px;
-    margin: auto;
-}
+.items{height: 500px;overflow-y: auto;}
+.item{display: flex;justify-content: space-between;padding: 8px 32px;margin: auto;}
 .item__name{font-family: D2Coding;font-size: 20px}
-.item__delete{
-    font-size: 18px;
-    transition: all 300ms ease-in-out;
-}
-
-.item__delete:hover{
-    color: tomato;
-    transform: scale(1.1);
-}
-
-.item__divider{
-    width: 95%;
-    height: 1px;
-    background-color: slategray;
-    margin: auto;
-}
-
-.footer{
-    font-size: 24px;
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    border-radius: 0 0 20px 20px;
-}
-.footer__input{
-    width: 100%;
-    height: 42px;
-    font-size: 20px;
-    border:none;
-}
+.item__delete{font-size: 18px;transition: all 300ms ease-in-out;}
+.item__delete:hover{color: tomato;transform: scale(1.1);}
+.item__divider{width: 95%;height: 1px;background-color: slategray;margin: auto;}
+.footer{font-size: 24px;background: rgb(238,174,202);background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);border-radius: 0 0 20px 20px;}
+.footer__input{width: 100%;height: 42px;font-size: 20px;border:none;}
 .footer__button{font-size: 40px; transition: all 300ms ease-in-out;}
 .footer__button:hover{color:gold; transform: scale(1.1)}

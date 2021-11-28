@@ -10,6 +10,7 @@ function onAdd() {
     }
     const item = createItem(text);
     items.appendChild(item);
+    item.scrollIntoView({block:'center'});
     input.value = '';
     input.focus();
 }
@@ -49,6 +50,8 @@ addBtn.addEventListener('click',()=>{
     onAdd();
 });
 
-input.addEventListener('keypress',()=>{
-    console.log('레전두')
+input.addEventListener('keypress',(event)=>{
+    if(event.key === 'Enter'){
+        onAdd();
+    }
 })

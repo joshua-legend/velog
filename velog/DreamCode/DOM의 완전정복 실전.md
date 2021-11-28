@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>shoppingList</title>
-    <link rel="stylesheet" href="shopping.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-  <script defer src="shopping.js"></script>
+# 쇼핑 리스트 미니 
 
-</head>
-<body>
+* 가운데 오도록 조정 하는 코드, input 포커스 했을 때 빈테두리
+
+* html class 정의 하는 방법 parent__child 와 같은 방식
+
+* css 애니메이션 transition 사용하기
+
+* box-sizing: border-box 설정
+
+* box-shadow 사이트 참조하기!
+
+* item.setAttribute(qualifiedNama,value); 속성 넣어주기
+
+```css
+body{background-color: #c7ecee;text-align: center;}
+input{outline: none;}
+.item__delete{font-size: 18px;transition: all 300ms ease-in-out;}
+```
+
+```js
+
+```
+
+```html
   <section class="list">
     <header class="header">Shopping list</header>
     <ul class="items">
@@ -29,5 +43,4 @@
       </button>
     </footer>
   </section>
-</body>
-</html>
+```
