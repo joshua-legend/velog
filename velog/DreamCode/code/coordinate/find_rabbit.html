@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{display: flex;flex-direction: column;height: 3000px;justify-content: space-evenly;}
+        #container > div {background-size: contain; background-repeat: no-repeat;  height: 100px;width: 25%;}
+        #guider{ position: -webkit-sticky;position: sticky;top: 0;}
+        #guider > div{display: flex;justify-content: flex-end;}
+        #guider > div > button{margin: 10px}
+    </style>
+</head>
+<body>
+  <div id="guider">
+      <div>
+          <button id="find_rabbit">find a rabbit 🐰</button>
+      </div>
+  </div>
+  <div id="container"></div>
+<script src="coordinate.js"></script>
+</body>
+</html>
