@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Pull a carrot</title>
+    <script defer src="game.js"></script>
+    <script defer src="game_start.js"></script>
     <link rel="stylesheet" href="game.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
 </head>
 <body>
-    <div class="game">
+    <section class="game">
         <section class="gameUtility">
             <button class="gameUtility__button">
                 <i class="fas fa-play fa-3x"></i>
             </button>
-            <div class="gameUtility__clock">00:00</div>
+            <div class="gameUtility__clock"></div>
             <div class="gameUtility__carrotsNumber">1</div>
         </section>
         <section class="gameField"></section>
-    </div>
+    </section>
     <section class="pop-up">
         <button class="pop-up__refresh">
             <i class="fas fa-redo"></i>

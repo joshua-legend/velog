@@ -23,7 +23,7 @@ function createItem(text) {
         <div class="item">
           <span class="item__name">${text}</span>
           <button class="item__delete">
-            <i class="fas fa-trash"  data-id = ${id}></i>
+            <i class="fas fa-trash" data-id = ${id}></i>
           </button>
         </div>
         <div class="item__divider"></div>
