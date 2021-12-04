@@ -4,6 +4,8 @@ import React, {Component} from "react";
 import Navbar from "./components/navbar";
 import Input from "./components/input";
 import Reset from "./components/reset";
+import Button1 from "./components/button1";
+import Button2 from "./components/button2";
 
 class App extends Component {
     state = {
@@ -63,6 +65,8 @@ class App extends Component {
               <Reset
                 resetHabits = {this.resetHabits}
               />
+              <Button1 />
+              <Button2 />
             </>
         );
     }
