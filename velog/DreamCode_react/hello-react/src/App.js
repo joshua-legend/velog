@@ -1,12 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import MyComponent from "./Component/MyComponent";
 
 function App() {
   return (
-    <>
-      <h1>Hello!</h1>
-      <h2>React</h2>
-    </>
+      <MyComponent name={"젖부"} age={77} day={"못참"}/>
   );
 }
 
