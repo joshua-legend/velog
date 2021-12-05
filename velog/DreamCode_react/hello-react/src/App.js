@@ -7,6 +7,7 @@ import EventPractice from "./Component/EventPractice";
 import EventPracticeRefactoring from "./Component/EventPracticeRefactoring";
 import ValidationSample from "./Component/ValidationSample";
 import IterationSample from "./Component/IterationSample";
+import IterationSample1 from "./Component/IterationSample1";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       // <EventPractice></EventPractice>
       // <EventPracticeRefactoring></EventPracticeRefactoring>
       // <ValidationSample></ValidationSample>
-      <IterationSample></IterationSample>
+      // <IterationSample></IterationSample>
+      <IterationSample1></IterationSample1>
   );
 }
 
