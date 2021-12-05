@@ -20,7 +20,6 @@ class ValidationSample extends Component {
             clicked:true,
             validated: this.state.pw === '0000'
         })
-        console.log(this.state.clicked);
     }
 
     render() {
