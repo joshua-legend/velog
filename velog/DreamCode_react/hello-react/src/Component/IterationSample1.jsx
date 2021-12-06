@@ -11,25 +11,32 @@ const IterationSample1 = props => {
     ]);
 
     const [inputText, setInputText] = useState('');
-    const [nextId, setNextId] = useState(5);
-
+    const [ID, setID] = useState(5);
 
     const onChange = (e) =>{
-        setInputText(e.target.value)
+        setInputText(e.target.value);
     }
 
-    const onClick = () => {
+    const onClick = () =>{
         const obj = name.concat({
-            id: nextId,
-            text: inputText
+            id:ID,
+            text:inputText,
         })
-        setNextId(nextId+1);
-        setName(obj)
+        setID(ID+1);
         setInputText('');
+        setName(obj);
     }
 
+    const onRemove = x => {
+        const newObj = name.filter(a => a.id !== x);
+        setName(newObj);
+    }
 
-    const nameList = name.map(x=><li>{x.text}</li>)
+    const nameList = name.map(x=>(
+        <li key={x.id} onDoubleClick={() => onRemove(x.id)}>
+            {x.text}
+        </li>
+    ));
     return(
         <>
             <input type="text" value={inputText} onChange={onChange}/>
@@ -37,6 +44,6 @@ const IterationSample1 = props => {
             <ul>{nameList}</ul>
         </>
     )
-};
+}
 
 export default IterationSample1;
