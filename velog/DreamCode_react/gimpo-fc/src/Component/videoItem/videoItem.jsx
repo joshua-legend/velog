@@ -2,9 +2,9 @@ import React from 'react';
 import './videoItem.css'
 
 const VideoItem = (props) => (
-    <div className="container">
+    <div className="itemBox">
         <img src={props.url} alt=""/>
-        <div>
+        <div className="itemBox__description">
             <span>{props.title}</span>
             <span>{props.description}</span>
         </div>

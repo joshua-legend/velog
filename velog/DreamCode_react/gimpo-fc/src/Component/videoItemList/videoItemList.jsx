@@ -4,9 +4,14 @@ import VideoItem from "../videoItem/videoItem";
 
 const VideoItemList = (props) => (
 
-    <div>
-        {props.videos.map(x=>(
-            <VideoItem x={x}></VideoItem>
+    <div className="itemContainer">
+        {props.items.map(item =>(
+            <VideoItem
+                key = {item.id.videoId}
+                url = {item.snippet.thumbnails.default.url}
+                title = {item.snippet.title}
+                description = {item.snippet.description}
+            />
         ))}
     </div>
 );
