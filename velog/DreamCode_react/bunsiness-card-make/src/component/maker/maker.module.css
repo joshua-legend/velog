@@ -1,7 +1,21 @@
+@value mediaQuery from '../../common/size.css';
+@value makerWhite from '../../common/colors.css';
 
-.maker{width: 95%;height: 100%; margin-top:5px;}
-main{background-color:white;height: 90%; display: flex;flex-direction: row;justify-content: space-around;align-items: flex-start;}
+.maker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: makerWhite;
+}
 
-@media screen and (max-width: 62rem) {
-    main{flex-direction: column;}
+.container {
+  display: flex;
+  flex: 1;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    flex-direction: column;
+  }
 }
