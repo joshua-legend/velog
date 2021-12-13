@@ -1,0 +1,9 @@
+.container{display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+    width: 100%;
+    align-items: center;
+    border-right: 1px solid rgba(87, 87, 87, 0.41);;
+}
+.title{font-size: x-large;color:#40739e;}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@600&display=swap');
+*{
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.loginFormContainer{
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 650px;
+    background:#40739e;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px -4px #000000;
+}
+
+header{display: flex; flex:2;align-items: center;justify-content: center;}
+header > *{font-size: 50px;}
+header > .logoText{color:white;}
+section{
+    display: flex;
+    flex-direction: column;
+    flex:4;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: white;
+}
+
+section > .loginText{
+    font-size: 50px;
+    color:#495057;
+}
+
+button{
+    width: 50%;
+    height: 20%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+footer{
+    display: flex;
+    flex:1;
+    font-size: 25px;
+    color:white;
+    justify-content: center;
+    align-items: center;
+}
